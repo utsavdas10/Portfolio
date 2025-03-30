@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utsav Das | Creative Developer</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to the latest CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome - Replace 'your-fontawesome-kit.js' or use CDN -->
+    <!-- <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Animated Background Container -->
+    <div class="animated-background"></div>
+
+    <!-- Moving Background Shapes -->
+    <div class="bg-shape shape-a"></div>
+    <div class="bg-shape shape-b"></div>
+    <div class="bg-shape shape-c"></div>
+    <!-- End Moving Background Shapes -->
+
+    <header class="glassmorphism">
+        <nav>
+            <div class="nav-logo animate-pop-in">Utsav Das</div>
+            <ul class="nav-links">
+                <li class="animate-slide-down" style="--delay: 0.1s;"><a href="#about">About</a></li>
+                <li class="animate-slide-down" style="--delay: 0.2s;"><a href="#projects">Projects</a></li>
+                <li class="animate-slide-down" style="--delay: 0.3s;"><a href="#skills">Skills</a></li>
+                <li class="animate-slide-down" style="--delay: 0.4s;"><a href="#contact">Contact</a></li>
+            </ul>
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle" aria-label="Toggle Dark Mode" class="animate-pop-in" style="--delay: 0.5s;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-sun" style="display: none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+            <!-- End Theme Toggle Button -->
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="scroll-animate fade-in-up">
+            <div class="hero-content">
+                <h1 class="animate-slide-up" style="--delay: 0.2s;">Hi, I'm <span class="gradient-text">Utsav Das</span></h1>
+                <p class="subtitle animate-slide-up" style="--delay: 0.4s;">Software Developer | AI/ML Enthusiast</p>
+                <p class="animate-slide-up" style="--delay: 0.6s;">Building innovative & beautiful digital experiences with code and data. Currently pursuing B.Tech in Computer Science.</p>
+                <div class="social-links animate-slide-up" style="--delay: 0.8s;">
+                    <a href="mailto:utsavdas10@gmail.com" aria-label="Email" target="_blank" rel="noopener noreferrer"><i class="fas fa-envelope"></i></a>
+                    <a href="https://linkedin.com/in/utsavdas10" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/utsavdas10" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="hero-image-container animate-scale-up" style="--delay: 0.5s;">
+                 <div class="hero-image parallax-element" data-speed="0.1">
+                    <img src="utsav_das_photo.png" alt="Utsav Das">
+                 </div>
+                 <div class="hero-shape shape-1 parallax-element" data-speed="-0.05"></div>
+                 <div class="hero-shape shape-2 parallax-element" data-speed="0.08"></div>
+            </div>
+        </section>
+
+        <section id="about" class="scroll-animate fade-in-up stagger-children">
+            <h2 class="scroll-animate fade-in">About Me</h2>
+            <p class="scroll-animate fade-in-up" style="--delay: 0.1s;">
+                I'm a passionate and driven Computer Science student at the Institute Of Engineering & Management (Expected May 2025, CGPA: 9.35), with a strong foundation in Data Structures, Algorithms, AI/ML, and Software Development principles. My academic journey includes a rewarding Study Abroad program at the National University of Singapore, where I delved deeper into Artificial Intelligence and Modern Trends In AI.
+            </p>
+            <p class="scroll-animate fade-in-up" style="--delay: 0.2s;">
+                I thrive on building practical, impactful applications, demonstrated through projects utilizing M.E.R.N, FastAPI, Generative AI, Computer Vision, and various Cloud platforms. As an active Core Member of the Google Developers Student's Club (GDSC) at IEM, I enjoy collaborating and contributing to the tech community. Outside of coding, I find joy in playing the guitar, table tennis, and football.
+            </p>
+        </section>
+
+        <section id="education" class="scroll-animate fade-in-up">
+            <h2 class="scroll-animate fade-in">Education</h2>
+            <div class="education-grid stagger-children-grid">
+                <div class="education-card card-hover-effect glassmorphism scroll-animate fade-in-up" style="--delay: 0.1s;">
+                    <h3>Institute Of Engineering & Management</h3>
+                    <p><strong>B.Tech, Computer Science & Engineering</strong></p>
+                    <p><em>Kolkata, West Bengal</em></p>
+                    <p>Expected Graduation: May 2025</p>
+                    <p>CGPA: 9.35</p>
+                    <p><small>Relevant Coursework: Data Structures & Algorithms, Operating Systems, Computer Networks, DBMS, ML/DL, Software Development, OOP (Java)</small></p>
+                </div>
+                <div class="education-card card-hover-effect glassmorphism scroll-animate fade-in-up" style="--delay: 0.2s;">
+                    <h3>National University of Singapore</h3>
+                    <p><strong>Study Abroad Program</strong></p>
+                    <p><em>Singapore</em></p>
+                    <p>Completed: August 2022</p>
+                     <p><small>Relevant Coursework: Artificial Intelligence, Machine Learning & Data Analytics, Modern Trends In AI</small></p>
+               </div>
+            </div>
+        </section>
+
+        <section id="projects" class="scroll-animate fade-in-up">
+            <h2 class="scroll-animate fade-in">Projects</h2>
+            <div class="projects-grid stagger-children-grid">
+
+                <!-- {/* --- ADD data-url TO EACH CARD --- */} -->
+                <div class="project-card card-hover-effect glassmorphism scroll-animate fade-in-up" style="--delay: 0.1s;"
+                     data-url="https://docs.google.com/document/d/1fVv2dNc3_uBJTU3Hh2cAG-JwvE30csB-yFeLWpy9sGM/edit?tab=t.0">
+                    <h3>MedVita</h3>
+                    <p>Led Back-End development for an AI-assisted yoga platform. Integrated Llama/Mistral chatbots using custom RAGs. Designed scalable REST APIs (NodeJs/FastAPI, MongoDB) and engineered real-time WebSockets video streaming for instant pose feedback, boosting FPS by 25%.</p>
+                    <p class="tech-stack"><strong>Tech:</strong> M.E.R.N, FastAPI, GenAI, GCP, REST, WebSockets, MongoDB, Node.js, OpenCV</p>
+                    <!-- {/* --- Optional: Remove href/target from inner link --- */} -->
+                    <a href="#" class="know-more" aria-hidden="true"> 
+                        <!-- {/* Set href="#" or remove, make aria-hidden */} -->
+                        Know More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="project-card card-hover-effect glassmorphism scroll-animate fade-in-up" style="--delay: 0.2s;"
+                     data-url="https://github.com/TheBinaryBuilders4/Product_Review_Summariser">
+                    <h3>QuickReview</h3>
+                    <p>Developed a product review summarizer that scrapes real-time reviews (Amazon/Flipkart), classifies them (fine-tuned DeBERTa, 75% validation accuracy), and uses Llama3 to summarize pros/cons with dynamic feature scores via a FastAPI back-end.</p>
+                    <p class="tech-stack"><strong>Tech:</strong> FastAPI, Python, DeBERTa, Sentiment Analysis, REST, Web Scraping, Llama3</p>
+                    <a href="#" class="know-more" aria-hidden="true">
+                        Know More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="project-card card-hover-effect glassmorphism scroll-animate fade-in-up" style="--delay: 0.3s;"
+                     data-url="https://docs.google.com/document/d/1GJS9qjBAaE-KoROfM-ngiagGa0JR7xjnYzHjI0tdssA/edit?tab=t.0">
+                    <h3>WasteWhiz</h3>
+                    <p>Developed and deployed AI models (IBM WatsonX on IBM Cloud) for a market analytics tool. Built the full stack from scratch (ExpressJS back-end, ReactJS front-end). Achieved a 15% accuracy increase using IBM Watson Studio for model development.</p>
+                    <p class="tech-stack"><strong>Tech:</strong> Data Science, M.E.R.N (Express/React), IBM Cloud, WatsonX, Node.js, React.js</p>
+                    <a href="#" class="know-more" aria-hidden="true">
+                        Know More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <!-- {/* --- END data-url ADDITION --- */} -->
+
+            </div>
+        </section>
+
+        <section id="skills" class="scroll-animate fade-in-up">
+            <h2 class="scroll-animate fade-in">Technical Skills</h2>
+            <div class="skills-container stagger-children-grid">
+                <!-- Technologies -->
+                <div class="skill-category card-hover-effect glassmorphism scroll-animate fade-in-up" style="--delay: 0.2s;">
+                    <h3><i class="fas fa-laptop-code"></i> Technologies</h3>
+                    <div class="tech-subcategories">
+                        <div>
+                            <h4>Backend</h4>
+                            <ul class="skill-list-inline">
+                                <li>Node.js</li>
+                                <li>Express.js</li>
+                                <li>FastAPI</li>
+                                <li>Socket.io</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Frontend</h4>
+                            <ul class="skill-list-inline">
+                                <li>React.js</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>AI/ML</h4>
+                            <ul class="skill-list-inline">
+                                <li>CNNs</li>
+                                <li>LLMs</li>
+                                <li>Deep Learning</li>
+                                <li>Tensorflow</li>
+                                <li>PyTorch</li>
+                                <li>Hugging Face</li>
+                                <li>Other DataScience Tools</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Databases</h4>
+                            <ul class="skill-list-inline">
+                                <li>MongoDB</li>
+                                <li>SQL</li>
+                                <li>Firebase</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Cloud & Deployment</h4>
+                            <ul class="skill-list-inline">
+                                <li>GCP</li>
+                                <li>AWS</li>
+                                <li>IBM Cloud</li>
+                                <li>Vercel</li>
+                                <li>CloudFlare</li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <!-- Concepts -->
+                <div class="skill-category card-hover-effect glassmorphism scroll-animate fade-in-up" style="--delay: 0.3s;">
+                    <h3><i class="fas fa-brain"></i> Concepts</h3>
+                    <ul class="skill-list">
+                        <li>Data Structures & Algorithms (DSA)</li>
+                        <li>Artificial Intelligence</li>
+                        <li>Machine Learning</li>
+                        <li>Neural Networks</li>
+                        <li>Computer Vision</li>
+                        <li>REST APIs</li>
+                        <li>WebSockets</li>
+                        <li>Agile Methodology</li>
+                        <li>Cloud Computing</li>
+                        <li>Computer Networks</li>
+                        <li>Operating Systems</li>
+                        <li>Object Oriented Programming</li>
+                    </ul>
+                </div>
+
+                <!-- Languages -->
+                <div class="skill-category card-hover-effect glassmorphism scroll-animate fade-in-up" style="--delay: 0.1s;">
+                    <h3><i class="fas fa-code"></i> Languages</h3>
+                    <ul class="skill-list">
+                        <li>Python</li>
+                        <li>Java</li>
+                        <li>JavaScript</li>
+                        <li>C</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="achievements" class="scroll-animate fade-in-up">
+            <h2 class="scroll-animate fade-in">Achievements</h2>
+            <ul class="stagger-children">
+                <li class="card-hover-effect glassmorphism scroll-animate fade-in-left" style="--delay: 0.1s;"><strong>Jury's Award Winner</strong> (Top 14 Globally) - IBM HACK CHALLENGE 2023</li>
+                <li class="card-hover-effect glassmorphism scroll-animate fade-in-left" style="--delay: 0.2s;"><strong>Won Best Beginner Team</strong> - Hack This Fall 3.0, 2023 (Android app for Indian Agricultural System)</li>
+                <li class="card-hover-effect glassmorphism scroll-animate fade-in-left" style="--delay: 0.3s;"><strong>Finished Top 10 in India</strong> - Vodafone International Hackathon, 2024</li>
+                <li class="card-hover-effect glassmorphism scroll-animate fade-in-left" style="--delay: 0.4s;"><strong>Secured 2nd place</strong> - Innovacion, 2022</li>
+            </ul>
+        </section>
+
+        <section id="contact" class="scroll-animate fade-in-up">
+            <h2 class="scroll-animate fade-in">Get In Touch</h2>
+            <p class="scroll-animate fade-in-up" style="--delay: 0.1s;">I'm actively seeking new opportunities and am always open to discussing new projects, creative ideas, or ways to contribute to exciting ventures. Let's connect!</p>
+            <div class="contact-links stagger-children">
+                <a href="mailto:utsavdas10@gmail.com" class="button scroll-animate pop-in" style="--delay: 0.2s;"><i class="fas fa-envelope"></i> Email Me</a>
+                <a href="https://linkedin.com/in/utsavdas10" class="button scroll-animate pop-in" style="--delay: 0.3s;" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/utsavdas10" class="button scroll-animate pop-in" style="--delay: 0.4s;" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Utsav Das. Crafted with <i class="fas fa-heart"></i> and <i class="fas fa-coffee"></i>.</p>
+    </footer>
+
+    <script src="script.js"></script> <!-- Link to the latest JS -->
+</body>
+</html>

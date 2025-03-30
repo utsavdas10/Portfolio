@@ -1,0 +1,512 @@
+/* --- Root Variables (Enhanced) --- */
+:root {
+    /* Font Variables */
+    --font-headings: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Color Palette - Light Theme */
+    --gradient-primary-light: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    --gradient-secondary-light: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+    --primary-accent-light: #2575fc;
+    --secondary-accent-light: #30cfd0;
+    --background-light: #edf2f7;
+    --text-light: #2d3748;
+    --glass-bg-light: rgba(255, 255, 255, 0.5);
+    --glass-border-light: rgba(255, 255, 255, 0.7);
+    --shadow-light: rgba(45, 55, 72, 0.12);
+    --highlight-light: rgba(37, 117, 252, 0.2);
+    /* --- CHANGE: Scrollbar Colors (Light) --- */
+    --scrollbar-track-light: #e2e8f0;
+    --scrollbar-thumb-light: #a0aec0;
+    --scrollbar-thumb-hover-light: #718096;
+
+
+    /* UPDATED DARK THEME PALETTE (Astronomy) */
+    --gradient-primary-dark: linear-gradient(135deg, #bf7ff7 0%, #f038ff 100%);
+    --gradient-secondary-dark: linear-gradient(135deg, #4d4dff 0%, #63f2ff 100%);
+    --primary-accent-dark: #bf7ff7;
+    --secondary-accent-dark: #f038ff;
+    --background-dark: #0a0a14;
+    --text-dark: #e8eaf6;
+    --glass-bg-dark: rgba(25, 25, 45, 0.6);
+    --glass-border-dark: rgba(80, 80, 110, 0.45);
+    --shadow-dark: rgba(0, 0, 0, 0.55);
+    --highlight-dark: rgba(191, 127, 247, 0.35);
+    /* --- CHANGE: Scrollbar Colors (Dark) --- */
+    --scrollbar-track-dark: #1a202c; /* Dark background */
+    --scrollbar-thumb-dark: var(--primary-accent-dark); /* Vibrant thumb */
+    --scrollbar-thumb-hover-dark: var(--secondary-accent-dark); /* Different vibrant hover */
+
+
+    /* Theme Agnostic Variables */
+    --background: var(--background-light);
+    --text-color: var(--text-light);
+    --primary-gradient: var(--gradient-primary-light);
+    --secondary-gradient: var(--gradient-secondary-light);
+    --primary-accent: var(--primary-accent-light);
+    --secondary-accent: var(--secondary-accent-light);
+    --glass-bg: var(--glass-bg-light);
+    --glass-border: var(--glass-border-light);
+    --shadow-color: var(--shadow-light);
+    --highlight-glow: var(--highlight-light);
+    /* --- CHANGE: Scrollbar Variables --- */
+    --scrollbar-track: var(--scrollbar-track-light);
+    --scrollbar-thumb: var(--scrollbar-thumb-light);
+    --scrollbar-thumb-hover: var(--scrollbar-thumb-hover-light);
+
+
+    /* Layout Variables */
+    --section-padding: 6rem 2rem;
+    --card-padding: 2rem;
+    --border-radius-lg: 18px;
+    --border-radius-md: 12px;
+    --transition-elastic: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    --transition-smooth: 0.5s ease-in-out;
+    --delay: 0s;
+}
+
+/* Apply Dark Theme Variables */
+[data-theme="dark"] {
+    --background: var(--background-dark);
+    --text-color: var(--text-dark);
+    --primary-gradient: var(--gradient-primary-dark);
+    --secondary-gradient: var(--gradient-secondary-dark);
+    --primary-accent: var(--primary-accent-dark);
+    --secondary-accent: var(--secondary-accent-dark);
+    --glass-bg: var(--glass-bg-dark);
+    --glass-border: var(--glass-border-dark);
+    --shadow-color: var(--shadow-dark);
+    --highlight-glow: var(--highlight-dark);
+    /* --- CHANGE: Apply dark scrollbar vars --- */
+    --scrollbar-track: var(--scrollbar-track-dark);
+    --scrollbar-thumb: var(--scrollbar-thumb-dark);
+    --scrollbar-thumb-hover: var(--scrollbar-thumb-hover-dark);
+}
+
+/* --- Basic Reset & Body --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: var(--font-body);
+    background-color: var(--background);
+    color: var(--text-color);
+    line-height: 1.7;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    overflow-x: hidden;
+    position: relative;
+    --text-rgb: 45, 55, 72; /* Base RGB for light text */
+}
+[data-theme="dark"] body {
+     --text-rgb: 226, 232, 240; /* Base RGB for dark text */
+}
+
+/* --- CHANGE: Custom Scrollbar --- */
+/* Works in Webkit browsers (Chrome, Safari, Edge) */
+body::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+}
+body::-webkit-scrollbar-track {
+    background: var(--scrollbar-track); /* Track color */
+    border-radius: 5px;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb); /* Thumb color */
+    border-radius: 5px;
+    border: 2px solid var(--scrollbar-track); /* Creates padding around thumb */
+    transition: background-color 0.3s ease;
+}
+body::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb-hover); /* Thumb hover color */
+}
+/* For Firefox (limited styling) */
+html {
+    scrollbar-width: thin; /* "auto" or "thin" */
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track); /* thumb track */
+}
+
+
+/* --- Animated Background --- */
+.animated-background { /* ... styles remain the same ... */
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -2;
+    background: linear-gradient( -45deg, var(--primary-accent-dark), var(--secondary-accent-dark), var(--gradient-secondary-dark), #0a0a14 );
+    background-size: 600% 600%;
+    animation: gradientFlow 20s ease infinite;
+    transition: opacity 0.5s ease;
+    opacity: 0.5;
+}
+[data-theme="light"] .animated-background { /* ... styles remain the same ... */
+    opacity: 0.25;
+    background: linear-gradient( -45deg, var(--primary-accent-light), var(--secondary-accent-light), #edf2f7 );
+    background-size: 400% 400%;
+    animation: gradientFlow 25s ease infinite;
+}
+@keyframes gradientFlow { /* ... styles remain the same ... */
+    0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; }
+}
+
+/* Moving Background Shapes */
+.bg-shape { /* ... styles remain the same ... */
+    position: fixed; border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    opacity: 0.35; filter: blur(40px); z-index: -1;
+    transition: background 0.5s ease, opacity 0.5s ease; will-change: transform, opacity;
+}
+.bg-shape.shape-a { /* ... styles remain the same ... */
+    width: clamp(300px, 30vw, 500px); height: clamp(300px, 30vw, 500px);
+    background: var(--secondary-gradient); top: 10vh; left: 10vw;
+    animation: moveBlobA 25s ease-in-out infinite alternate;
+}
+.bg-shape.shape-b { /* ... styles remain the same ... */
+    width: clamp(250px, 25vw, 400px); height: clamp(250px, 25vw, 400px);
+    background: var(--primary-gradient); top: 50vh; left: 60vw;
+    animation: moveBlobB 30s 2s ease-in-out infinite alternate;
+    border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%;
+}
+.bg-shape.shape-c { /* ... styles remain the same ... */
+    width: clamp(150px, 15vw, 250px); height: clamp(150px, 15vw, 250px);
+    background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
+    top: 70vh; left: 25vw; animation: moveBlobC 20s 1s ease-in-out infinite alternate;
+    border-radius: 30% 70% 50% 50% / 60% 40% 70% 30%; opacity: 0.25;
+}
+[data-theme="light"] .bg-shape { opacity: 0.2; filter: blur(50px); } /* ... styles remain the same ... */
+@keyframes moveBlobA { /* ... styles remain the same ... */
+    0% { transform: translate(0, 0) rotate(0deg) scale(1); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+    100% { transform: translate(5vw, -10vh) rotate(90deg) scale(1.1); border-radius: 70% 30% 40% 60% / 60% 50% 40% 50%; }
+}
+@keyframes moveBlobB { /* ... styles remain the same ... */
+    0% { transform: translate(0, 0) rotate(0deg) scale(1); border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%; }
+    100% { transform: translate(-10vw, 15vh) rotate(-70deg) scale(0.95); border-radius: 30% 70% 60% 40% / 40% 50% 50% 60%; }
+}
+@keyframes moveBlobC { /* ... styles remain the same ... */
+    0% { transform: translate(0, 0) rotate(0deg) scale(1); border-radius: 30% 70% 50% 50% / 60% 40% 70% 30%; }
+    100% { transform: translate(8vw, 5vh) rotate(120deg) scale(1.05); border-radius: 50% 50% 30% 70% / 70% 30% 60% 40%; }
+}
+
+
+/* --- Glassmorphism Style --- */
+.glassmorphism { /* ... styles remain the same ... */
+    background: var(--glass-bg); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 var(--shadow-color), inset 0 1px 1px 0 rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-lg); transition: background 0.4s ease, border 0.4s ease, box-shadow 0.4s ease;
+}
+[data-theme="dark"] .glassmorphism { /* ... styles remain the same ... */
+     box-shadow: 0 8px 32px 0 var(--shadow-color), inset 0 1px 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* --- Header --- */
+header.glassmorphism { /* ... styles remain the same ... */
+    padding: 1rem 2rem; position: sticky; top: 10px; z-index: 1000; margin: 10px auto;
+    max-width: calc(1100px + 4rem); border-radius: var(--border-radius-md);
+}
+/* ... Nav, Logo, Links, Toggle styles remain the same ... */
+nav { display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; }
+.nav-logo { font-family: var(--font-headings); font-weight: 700; font-size: 1.7rem; color: var(--primary-accent); transition: transform 0.3s ease, color 0.3s ease; }
+.nav-logo:hover { transform: scale(1.05); color: var(--secondary-accent); }
+.nav-links { display: flex; list-style: none; gap: 2.5rem; }
+.nav-links a { font-weight: 600; color: var(--text-color); text-decoration: none; position: relative; padding-bottom: 8px; }
+.nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0%; height: 3px; background: var(--primary-gradient); border-radius: 2px; transition: width 0.4s var(--transition-elastic); }
+.nav-links a:hover::after { width: 100%; }
+#theme-toggle { background: transparent; border: none; cursor: pointer; padding: 0.5rem; color: var(--text-color); display: flex; align-items: center; border: 1px solid transparent; border-radius: 50%; transition: transform 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
+#theme-toggle:hover { transform: scale(1.15) rotate(10deg); color: var(--primary-accent); border-color: var(--primary-accent); }
+#theme-toggle svg { width: 22px; height: 22px; stroke: currentColor; }
+
+
+/* --- General Section & Typography --- */
+/* ... Styles remain the same ... */
+main section { padding: var(--section-padding); max-width: 1100px; margin: 2rem auto; position: relative; }
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-headings); font-weight: 700; margin-bottom: 1.2rem; line-height: 1.3; color: var(--text-color); }
+h1 { font-size: clamp(2.8rem, 7vw, 4.5rem); }
+h2 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 600; margin-bottom: 3.5rem; text-align: center; position: relative; background: var(--primary-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; padding-bottom: 5px; }
+h2::after { content: ''; display: block; width: 70px; height: 4px; background: var(--primary-gradient); border-radius: 3px; margin: 0.8rem auto 0; }
+h3 { font-size: 1.5rem; font-weight: 600; color: var(--primary-accent); }
+.gradient-text { background: var(--primary-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-block; }
+p { margin-bottom: 1.3rem; opacity: 0.9; max-width: 700px; }
+section p { margin-left: auto; margin-right: auto; text-align: center; }
+#hero p { text-align: left; margin-left: 0; }
+section:not(#hero) h2 + p { margin-top: -2rem; margin-bottom: 3rem; }
+
+/* --- Hero Section --- */
+/* ... Styles remain the same ... */
+#hero { display: flex; align-items: center; justify-content: space-between; gap: 3rem; min-height: 90vh; overflow: visible; padding-top: 2rem; padding-bottom: 4rem; }
+.hero-content { flex: 1.1; z-index: 2; }
+.hero-content .subtitle { font-size: clamp(1.3rem, 3vw, 1.9rem); font-weight: 400; margin-bottom: 1.8rem; opacity: 0.95; }
+.social-links { margin-top: 2.5rem; display: flex; gap: 1.8rem; }
+.social-links a { font-size: 2rem; color: var(--text-color); text-decoration: none; transition: transform 0.3s var(--transition-elastic), color 0.3s ease; }
+.social-links a i { color: inherit; transition: color 0.3s ease; }
+.social-links a:hover { color: var(--primary-accent); transform: scale(1.2); }
+.hero-image-container { flex-basis: clamp(300px, 35vw, 400px); position: relative; z-index: 1; }
+.hero-image { position: relative; padding: 10px; z-index: 1; }
+.hero-image img { display: block; max-width: 100%; height: auto; border-radius: 50%; border: 6px solid var(--glass-bg); box-shadow: 0 0 40px 10px var(--highlight-glow); transition: transform 0.5s ease, box-shadow 0.5s ease, border-color 0.4s ease; }
+.hero-image:hover img { transform: scale(1.03); box-shadow: 0 0 60px 15px var(--highlight-glow); }
+.hero-shape { position: absolute; border-radius: 30%; background: var(--secondary-gradient); opacity: 0.3; filter: blur(15px); z-index: 0; transition: background 0.4s ease; }
+.shape-1 { width: 150px; height: 150px; top: -20px; left: -30px; animation: float 8s ease-in-out infinite alternate; }
+.shape-2 { width: 100px; height: 100px; bottom: -10px; right: -20px; animation: float 10s 1s ease-in-out infinite alternate; }
+@keyframes float { 0% { transform: translateY(0px) rotate(0deg); } 100% { transform: translateY(-20px) rotate(15deg); } }
+
+
+/* --- Card Hover Effect (3D Tilt) & General Card Styling --- */
+.card-hover-effect {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease, box-shadow 0.5s ease, background 0.4s ease, border 0.4s ease;
+    will-change: transform, box-shadow;
+    position: relative; /* Needed for pseudo elements */
+    overflow: hidden; /* Clip pseudo elements */
+    z-index: 1; /* Ensure cards are above background blobs */
+}
+.card-hover-effect:hover {
+    box-shadow: 0 20px 50px var(--shadow-color);
+    /* Add subtle upward shift to tilt */
+    transform: perspective(1000px) rotateX(var(--rotateX, 0)) rotateY(var(--rotateY, 0)) scale3d(1.03, 1.03, 1.03) translateY(-3px);
+}
+
+/* Base Card Styling - Apply glassmorphism directly */
+.project-card, .education-card, .skill-category, #achievements li {
+    background: var(--glass-bg); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 var(--shadow-color), inset 0 1px 1px 0 rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-lg); padding: var(--card-padding); margin-bottom: 1.5rem;
+    position: relative; overflow: hidden; transform-style: preserve-3d;
+    transition: transform 0.5s ease, box-shadow 0.5s ease, background 0.4s ease, border 0.4s ease;
+    will-change: transform, box-shadow;
+}
+[data-theme="dark"] .project-card,
+[data-theme="dark"] .education-card,
+[data-theme="dark"] .skill-category,
+[data-theme="dark"] #achievements li {
+    box-shadow: 0 8px 32px 0 var(--shadow-color), inset 0 1px 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+
+/* Gradient border on hover */
+.card-hover-effect::before {
+     /* ... styles remain the same ... */
+     content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; border-radius: inherit; padding: 1px; background: var(--primary-gradient); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity 0.5s ease; z-index: 2; /* Above overlay */ pointer-events: none; /* Allow clicks through */
+}
+.card-hover-effect:hover::before { opacity: 1; }
+
+/* --- CHANGE: Added Animated Overlay on Hover --- */
+.card-hover-effect::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+        160deg,
+        rgba(var(--glass-rgb, 255, 255, 255), 0) 0%, /* Start transparent */
+        rgba(var(--glass-rgb, 255, 255, 255), 0.05) 40%,
+        rgba(var(--glass-rgb, 255, 255, 255), 0.0) 100% /* End transparent */
+    );
+    /* Use theme accent for the overlay color base */
+    background: radial-gradient(circle at 10% 10%, var(--primary-accent), transparent 60%),
+                radial-gradient(circle at 90% 80%, var(--secondary-accent), transparent 70%);
+    background-size: 300% 300%; /* Large size for movement */
+    background-position: 50% 50%; /* Start centered */
+    opacity: 0; /* Hidden by default */
+    z-index: 0; /* Behind content, above base background */
+    transition: opacity 0.6s ease, background-position 0.6s ease;
+    filter: blur(5px); /* Soft blur on the overlay */
+}
+[data-theme="dark"] .card-hover-effect::after {
+    /* Slightly different overlay base for dark mode if desired */
+    background: radial-gradient(circle at 10% 10%, var(--primary-accent-dark), transparent 60%),
+                radial-gradient(circle at 90% 80%, var(--secondary-accent-dark), transparent 70%);
+    background-size: 300% 300%;
+    background-position: 50% 50%;
+    filter: blur(8px); /* Slightly more blur in dark mode */
+}
+.card-hover-effect:hover::after {
+    opacity: 0.2; /* Fade in the overlay */
+    background-position: 0% 0%; /* Move the background gradient */
+}
+/* Define --glass-rgb based on theme */
+.glassmorphism, .project-card, .education-card, .skill-category, #achievements li {
+    --glass-rgb: 255, 255, 255; /* Default light */
+}
+[data-theme="dark"] .glassmorphism,
+[data-theme="dark"] .project-card,
+[data-theme="dark"] .education-card,
+[data-theme="dark"] .skill-category,
+[data-theme="dark"] #achievements li {
+    --glass-rgb: 25, 25, 45; /* Dark glass base */
+}
+
+/* --- Grid Layouts & Skills Section --- */
+.education-grid, .projects-grid { /* ... styles remain the same ... */
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 2.5rem;
+}
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    gap: 2.5rem;
+    /* --- CHANGE: Center Grid Items --- */
+    justify-items: center; /* This centers items horizontally within their grid cell */
+}
+/* Specific Card Types */
+.project-card .tech-stack {
+    font-size: 0.88rem; /* Slightly increase size */
+    opacity: 0.9;      /* Make it slightly more prominent than regular text */
+    margin-top: 1.5rem; /* Increase space above it */
+    padding-top: 0.8rem; /* Add padding above the text, below the border */
+    border-top: 1px solid var(--glass-border); /* Subtle separator line using theme color */
+    font-weight: 400; /* Regular weight for the tech list itself */
+    line-height: 1.5; /* Ensure good line spacing if it wraps */
+    color: var(--text-color); /* Ensure it inherits text color correctly */
+}
+
+/* Style the "Tech:" label specifically */
+.project-card .tech-stack strong {
+    font-weight: 600; /* Make the label bold */
+    color: var(--secondary-accent); /* Use a theme accent color */
+    margin-right: 0.4em; /* Space after the colon */
+    /* Optional: Add an icon before the label */
+    /* Requires Font Awesome to be loaded correctly */
+}
+
+.project-card .tech-stack strong::before {
+     font-family: "Font Awesome 6 Free"; /* Check if using Free/Solid/Brands */
+     font-weight: 900; /* Use '900' for Solid style */
+     content: "\f013"; /* Unicode for fa-gear (or fa-cog) */
+     margin-right: 0.5em;
+     font-size: 0.9em; /* Slightly smaller icon */
+     color: var(--secondary-accent); /* Match label color */
+     vertical-align: middle; /* Align icon better */
+     opacity: 0.8; /* Slightly reduce icon opacity */
+}
+
+/* Ensure the link below has enough space */
+.project-card .know-more {
+    margin-top: 1.2rem; /* Add slightly more margin above the button */
+}
+.project-card .know-more { /* ... styles remain the same ... */ display: inline-block; margin-top: 1rem; font-weight: 700; color: var(--primary-accent); }
+.project-card .know-more i { margin-left: 0.3rem; transition: transform 0.3s ease; }
+.project-card .know-more:hover i { transform: translateX(4px); }
+
+/* Base Card Styling */
+.project-card, .education-card, .skill-category, #achievements li {
+    /* ... existing styles ... */
+    transition: transform 0.5s ease, box-shadow 0.5s ease, background 0.4s ease, border 0.4s ease;
+    will-change: transform, box-shadow;
+}
+
+/* --- ADD CURSOR FOR PROJECT CARDS --- */
+.project-card {
+    cursor: pointer;
+}
+/* --- END CURSOR ADDITION --- */
+
+/* Optional: Style the inner "Know More" link differently if needed now */
+.project-card .know-more {
+    /* Maybe reduce emphasis slightly if card is clickable */
+     opacity: 0.8;
+     pointer-events: none; /* Prevent nested link behavior */
+}
+
+/* ... rest of your CSS ... */
+.skill-category {
+     /* --- CHANGE: Ensure text aligns left within the centered card --- */
+     text-align: left;
+     width: 100%; /* Ensure card takes full width of its grid cell */
+     max-width: 400px; /* Optional: prevent cards becoming excessively wide */
+}
+.skill-category h3 { /* --- CHANGE: Center heading text now --- */
+    background: none; -webkit-background-clip: initial; background-clip: initial;
+    color: var(--primary-accent); display: block; /* Make block for centering */
+    margin-bottom: 1rem; text-align: center;
+}
+.skill-category h3 i { margin-right: 0.5rem; }
+/* Skill Lists Styles */
+.skill-list { list-style: none; padding-left: 0; margin-top: 0.8rem; text-align: center; }
+.skill-list li { display: inline-block; background-color: rgba(var(--text-rgb), 0.1); color: var(--text-color); padding: 0.3rem 0.8rem; margin: 0.3rem; border-radius: 5px; font-size: 0.9rem; font-weight: 500; transition: background-color 0.3s ease, color 0.3s ease; }
+[data-theme="dark"] .skill-list li { background-color: rgba(var(--text-rgb), 0.15); }
+.skill-list li:hover { background: var(--primary-gradient); color: #fff; }
+/* Technology Subcategories */
+.tech-subcategories { margin-top: 1rem; text-align: left; }
+.tech-subcategories h4 { font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; color: var(--text-color); opacity: 0.8; margin-top: 0.8rem; margin-bottom: 0.3rem; padding-left: 0.5rem; border-left: 3px solid var(--primary-accent); }
+.skill-list-inline { list-style: none; padding-left: 0; margin-bottom: 0.5rem; text-align: left; /* Keep items aligned left */ }
+.skill-list-inline li { display: inline-block; background-color: rgba(var(--text-rgb), 0.1); color: var(--text-color); padding: 0.3rem 0.8rem; margin: 0.2rem; border-radius: 5px; font-size: 0.85rem; font-weight: 500; transition: background-color 0.3s ease, color 0.3s ease; }
+[data-theme="dark"] .skill-list-inline li { background-color: rgba(var(--text-rgb), 0.15); }
+.skill-list-inline li:hover { background: var(--primary-gradient); color: #fff; }
+
+
+/* Achievements List */
+#achievements ul { /* ... styles remain the same ... */ list-style: none; padding-left: 0; max-width: 800px; margin: 0 auto; }
+#achievements li { /* ... styles remain the same ... */ border-radius: var(--border-radius-md); padding: 1.5rem 1.5rem 1.5rem 4rem; }
+#achievements li::before { /* ... styles remain the same ... */ content: '🏆'; position: absolute; left: 1.5rem; top: 50%; transform: translateY(-50%); font-size: 1.8rem; background: var(--secondary-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+
+/* --- Contact Button & Section --- */
+#contact { text-align: center; }
+#contact p { max-width: 600px; margin-left: auto; margin-right: auto; opacity: 0.9; }
+.contact-links { margin-top: 2.5rem; display: flex; justify-content: center; align-items: center; gap: 1.5rem; flex-wrap: wrap; width: 100%; }
+/* ... Button Styles remain the same ... */
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; text-align: center; font-weight: 700; font-size: 1rem; color: #fff; background: var(--primary-gradient); border: none; box-shadow: 0 5px 20px -5px var(--highlight-glow); transition: transform 0.3s var(--transition-elastic), box-shadow 0.3s ease; position: relative; overflow: hidden; z-index: 1; }
+.button i { color: #fff; }
+.button:hover { transform: scale(1.05) translateY(-2px); box-shadow: 0 10px 30px -8px var(--highlight-glow); }
+.button .ripple { position: absolute; border-radius: 50%; background-color: rgba(255, 255, 255, 0.6); transform: scale(0); animation: ripple-effect 0.6s linear; pointer-events: none; }
+@keyframes ripple-effect { to { transform: scale(4); opacity: 0; } }
+
+
+/* --- Footer --- */
+footer { /* ... styles remain the same ... */ text-align: center; padding: 2.5rem 1rem; margin-top: 4rem; border-top: 1px solid var(--glass-border); font-size: 0.9rem; color: var(--text-color); opacity: 0.7; transition: border-color 0.4s ease, color 0.4s ease, opacity 0.4s ease; }
+footer i { color: var(--primary-accent); margin: 0 0.2rem; }
+
+
+/* --- Animations (Entrance & Scroll) --- */
+/* ... Animations remain the same ... */
+.animate-pop-in { animation: popIn 0.6s var(--transition-elastic) forwards; animation-delay: var(--delay); opacity: 0; }
+.animate-slide-down { animation: slideDown 0.7s 0.2s ease-out forwards; animation-delay: var(--delay); opacity: 0; }
+.animate-slide-up { animation: slideUp 0.8s 0.2s ease-out forwards; animation-delay: var(--delay); opacity: 0; }
+.animate-scale-up { animation: scaleUp 0.8s 0.2s ease-out forwards; animation-delay: var(--delay); opacity: 0; }
+.scroll-animate { opacity: 0; transition: opacity 0.8s ease-out, transform 0.8s ease-out; will-change: opacity, transform; }
+.scroll-animate.fade-in { transform: translateY(0); }
+.scroll-animate.fade-in-up { transform: translateY(50px); }
+.scroll-animate.fade-in-left { transform: translateX(-50px); }
+.scroll-animate.pop-in { transform: scale(0.8); transition: opacity 0.6s ease-out, transform 0.6s var(--transition-elastic); }
+.scroll-animate.visible { opacity: 1; transform: translateY(0) translateX(0) scale(1); }
+.stagger-children > *, .stagger-children-grid > * { transition-delay: calc(var(--delay) + var(--stagger-index, 0) * 0.1s); }
+@keyframes popIn { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: scale(1); } }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes scaleUp { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) { /* ... styles remain the same ... */ :root { --section-padding: 5rem 1.5rem; } header.glassmorphism { top: 5px; margin: 5px auto; } }
+@media (max-width: 768px) {
+    body { line-height: 1.6; }
+    h1 { font-size: clamp(2.2rem, 10vw, 3rem); }
+    h2 { font-size: clamp(1.8rem, 7vw, 2.4rem); }
+    main section { padding: 4rem 1rem; margin: 1rem auto; }
+    .nav-links { display: none; }
+    #theme-toggle { position: absolute; top: calc(50% - 18px); right: 1.5rem; z-index: 1001; background: var(--glass-bg); }
+    #hero { flex-direction: column-reverse; text-align: center; min-height: auto; padding: 8rem 1rem 4rem; }
+    #hero p { text-align: center; margin-left: auto; }
+    .hero-content { flex: 1; }
+    .hero-image-container { width: 60%; max-width: 280px; margin: 0 auto 2.5rem; }
+    .social-links { justify-content: center; }
+    .hero-shape { display: none; }
+    .bg-shape { display: none; }
+    .education-grid, .projects-grid, .skills-container { gap: 1.5rem; }
+    /* Disable 3D tilt, keep simple hover */
+    .card-hover-effect:hover { transform: translateY(-5px); box-shadow: 0 10px 25px var(--shadow-color); }
+    .card-hover-effect::before { display: none; } /* Hide gradient border */
+    .card-hover-effect::after { display: none; } /* Hide overlay */
+    #achievements li { padding: 1.2rem 1.2rem 1.2rem 3.5rem; }
+    #achievements li::before { left: 1rem; font-size: 1.5rem; }
+    .glassmorphism, .project-card, .education-card, .skill-category, #achievements li { backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+    /* --- CHANGE: Ensure skill category still looks okay centered --- */
+    .skills-container { justify-items: stretch; /* Let items fill cell width */ }
+    .skill-category { text-align: center; /* Center text within card */ }
+    .skill-category h3 { display: inline-block; } /* Let heading center naturally */
+    .tech-subcategories { text-align: center; } /* Center subcats */
+    .tech-subcategories h4 { display: inline-block; border-left: none; padding-left: 0; margin: 0.8rem auto 0.3rem; text-align: center; width: 100%; } /* Center sub-heading */
+    .skill-list-inline { text-align: center; } /* Center inline tags */
+}
+@media (max-width: 480px) {
+    :root { --section-padding: 3rem 1rem; }
+    .button { width: 90%; padding: 0.9rem 1.5rem; font-size: 0.95rem; }
+    .contact-links { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+    #hero { padding-top: 6rem; }
+    .glassmorphism, .project-card, .education-card, .skill-category, #achievements li { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+}
